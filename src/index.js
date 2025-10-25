@@ -1,8 +1,24 @@
 module.exports = rangeSlider
 
-function rangeSlider(opts){
-    
+var id=0;
+
+function rangeSlider(opts, protocol){
+   
     const { min=0, max=1000 }=opts
+    const name = `range-${id++}`
+
+    const notify =protocol({from: name},listen) //notify parent
+    function listen(message)
+    {
+        const {type,data}=message
+        if(type === "update")
+        {
+            input.value=data
+            fill.style.width = `${data/max*100}%`
+            input.focus()
+        }
+
+    }
     const el=document.createElement('div')
     el.classList.add('container')
 
@@ -31,6 +47,7 @@ function rangeSlider(opts){
         const val= Number(e.target.value)
         console.log(val);
         fill.style.width = `${val/max*100}%`
+        notify({from:name,type:'update',data:val})
     }
 }
 
