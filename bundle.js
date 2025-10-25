@@ -10,7 +10,6 @@ main.classList.add('demo')
 const style = document.createElement('style')
 style.textContent= `
  .demo {
- border: 1px solid red;
  padding: 50px;
  }
 `
@@ -34,7 +33,7 @@ function rangeSlider(opts){
     input.min=min
     input.max=max
     input.value=min
-    
+
     input.oninput=handle_input
     const bar = document.createElement('div')
     bar.classList.add('bar')
@@ -80,6 +79,7 @@ function get_theme()
        left: 0;
        width: 100%;
        -webkit-appearance: none;
+       outline:none;
        margin: 0;
        z-index: 2;
        background-color: var(--transparent);
@@ -122,6 +122,20 @@ function get_theme()
     input:focus-within + .bar .fill,
     input:active + .bar .fill {
         background-color: var(--blue);
+    }
+    input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: var(--white);
+        border: 1px solid var(--grey);
+        cursor: pointer;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, .4);
+        transition: background-color .3s, box-shadow .15s linear;
+    }
+    input::-webkit-slider-thumb:hover {
+        box-shadow: 0 0 0 14px rgba(94, 176, 245, .8);
     }
     `
 }
