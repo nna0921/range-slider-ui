@@ -27,8 +27,9 @@ function rangeSlider(opts, protocol){
    
     const { min=0, max=1000 }=opts
     const name = `range-${id++}`
-
-    const notify =protocol({from: name},listen) //notify parent
+    if (protocol) {
+    notify = protocol({ from: name }, listen)
+    } //notify parent
     function listen(message)
     {
         const {type,data}=message

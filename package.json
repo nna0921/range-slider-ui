@@ -18,7 +18,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "standardx": {
-    "env": ["browser"],
+    "env": [
+      "browser"
+    ],
     "parserOptions": {
       "ecmaVersion": "latest"
     },
@@ -26,11 +28,9 @@
       "camelcase": "off"
     }
   },
-
   "devDependencies": {
     "browserify": "^17.0.1",
     "budo": "^11.8.4",
     "standardx": "^7.0.0"
   }
-  
 }
