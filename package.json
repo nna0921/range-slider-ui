@@ -13,8 +13,8 @@
   "scripts": {
     "start": "budo demo/demo.js:bundle.js --open --live",
     "build": "browserify demo/demo.js > bundle.js",
-    "lint": "standardx",
-    "lint:fix": "standardx --fix",
+    "lint": "standardx src demo",
+    "lint:fix": "standardx --fix src demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "standardx": {
